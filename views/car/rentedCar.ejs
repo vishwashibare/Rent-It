@@ -1,0 +1,52 @@
+<% layout('views/layouts/boilerplate') %> 
+
+
+<div class="content-area">
+
+    <section class="page-section breadcrumbs text-right mb-5">
+        <div class="container">
+            <div class="page-header" style="text-align: center;" >
+                <h1>Car History</h1>
+            </div>
+            <ul class="breadcrumb ">
+                <li><a href="/">Home</a></li>
+                <li class="active">Your Cars</li>
+            </ul>
+        </div>
+    </section>
+
+    
+    <div class="container text-center mt-5">
+        
+        <div class="row">
+            <% current.rentedcar.map((car)=>{ %>
+            <div class="container col mb-4">
+                <div class="card" style="width: 30rem;padding-bottom:10px">
+                    <%if(car.image.length) {%>
+                        <img src="<%=car.image[0].url%>" class="card-img-top" alt="..." style="width:298.4px;height:210px">
+                        <% }else {%>
+                        <img class="card-img-top" alt=""
+                            src="https://res.cloudinary.com/douqbebwk/image/upload/v1600103881/YelpCamp/lz8jjv2gyynjil7lswf4.png">
+                        <% } %>
+                    <div class="card-body">
+                      <h5 class="card-title">Brand : <%=car.carname%></h5>
+                      
+                      <p class="card-text"><%=car.cardesc%></p>
+                    </div>
+                    <ul class="list-group list-group-flush push-left">
+                      <li class="list-group-item">Purchased year : <i class="fa fa-car"></i> <span style="font-weight: bold;"><%= car.year %></span></li>
+                      <li class="list-group-item">Fuel : <i class="fa fa-dashboard"></i> <span style="font-weight: bold;"><%=car.workon%></span></li>
+                      <li class="list-group-item">Distance travelled : <i class="fa fa-road"></i> <span style="font-weight: bold;"><%=car.distance%> KMS</span></li>
+                      <li class="list-group-item">Price : <span style="font-weight: bold;"><%=car.rent%> $</span> per day</li>
+                    </ul>
+                  </div>
+            </div>
+            <%  }) %>
+        </div>
+         
+      </div>
+    
+    
+    
+
+</div>

@@ -1,0 +1,51 @@
+<% layout('views/layouts/boilerplate') %> 
+<div class="form-search light col-4 container mt-5" style="width:auto;">
+    <form action="/register" method="POST" class="needs-validation" novalidate>
+        <div class="form-title">
+            <i class="fa fa-globe"></i>
+            <h2>Create account...</h2>
+        </div>
+
+        <div class="row row-inputs">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="form-group has-icon has-label">
+                        <label for="validationCustomUsername">Username</label>
+                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="your username" name="username" required> 
+                        <div class="invalid-feedback">
+                            Enter username.
+                          </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group has-icon has-label">
+                        <label for="validationCustom01">Email</label>
+                        <input type="text" class="form-control" id="validationCustom01" placeholder="your email" name="email" required> 
+                        <div class="invalid-feedback">
+                            Enter email.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group has-icon has-label">
+                        <label for="validationCustom01">Password</label>
+                        <input type="password" class="form-control" id="validationCustom01" placeholder="your password" name="password" required>
+                        <div class="invalid-feedback">
+                            Enter password.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-submit" >
+            <div class="container-fluid" >
+                <div class="inner" >
+                    <button type="submit" id="formSearchSubmit2" class="btn btn-submit btn-theme pull-left btn-primary" >Register account</button>
+                    <i class="fa"></i>                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

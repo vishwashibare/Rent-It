@@ -1,0 +1,170 @@
+<% layout('views/layouts/boilerplate') %> 
+
+<div class="container">
+    <h3 class="block-title alt mt-5"><i class="fa fa-angle-down"></i>Car Information</h3>
+                        <div class="car-big-card alt">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <% car.image.forEach((img, i) => {  %>
+                                          <div class="carousel-item active">
+                                            <img src="<%= img.url%>" class="d-block w-100" alt="..." style="height:500px;width:500px">
+                                          </div>
+                                          <% }) %>
+                                        </div>
+                                        <% if(car.image.length > 1) {%>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                        <% } %> 
+                                      </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="car-details">
+                                        <div class="list">
+                                            <ul>
+                                                <li class="title">
+                                                    <h2><%=car.carname%><span> <%=car.workon%></span></h2>
+                                                    Owner : <%=car.author.username%> 
+                                                </li>
+                                                <li>Fuel <%=car.workon%> / 1600 cm3 Engine</li>
+                                                <li>Under <%=car.distance%> Km</li>
+                                                <li>Transmission Manual</li>
+                                                <li><%=2023 - car.year %> Year service included</li>
+                                                <li>Manufacturing Year <%= car.year %></li>
+                                                <li>4 Doors and Panorama View</li>
+                                            </ul>
+                                        </div>
+                                        <div class="price">
+                                            <strong><%=car.rent%></strong> <span>$/for 8 day(s)</span> <i class="fa fa-info-circle"></i>
+                                        </div>
+                                        <% if(currentUser){ %> 
+                                        <div class="d-flex">
+                                           <%  if(currentUser && !car.author.equals(currentUser._id)){ %>
+                                            <% if(!isrented){ %> 
+                                            <div class="card-body buttons text-start ms-3 mt-5 ">
+                                                <a class="btn btn-theme card-link px-5" href="/car/allcars/<%=car._id%>/rentedcars" style="height: auto;background-color: rgb(0, 139, 0);border-color:rgb(0, 139, 0);width:90%">Rent It</a>
+                                              </div>
+                                              <% }else{ %> 
+                                                <div class="card-body text-start ms-3 mt-5 mb-5">
+                                                  <h3 style="color: green;font-weight:bold;">Already rented...</h3>
+                                                </div>
+                                               <% } %> 
+                                              <% } %> 
+                                              <% if(currentUser && car.author.equals(currentUser._id)){ %> 
+                                            <div class="card-body buttons text-start ms-3 mt-5">
+                                                <form action="/car/allcars/<%=car._id%>?_method=DELETE" method="post">
+                                                  <button class="btn btn-theme card-link pull-right me-3" style="height: auto;background-color: red;border-color:red">Delete</button>
+                                                </form>
+                                              </div>
+                                              <% } %> 
+                                        </div>
+                                        <% }else{ %> 
+                                          <div class="card-body buttons text-start ms-3 mt-5 ">
+                                                <a class="btn btn-theme card-link px-5" href="/" style="height: auto;background-color: rgb(0, 139, 0);border-color:rgb(0, 139, 0);width:90%">Click here to login</a>
+                                              </div>
+                                          <% } %> 
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="page-divider half transparent"/>
+
+
+            <div class="container ">
+                <div class="row justify-content-evenly">
+                  <% if(currentUser){ %> 
+                    <div class="col-6">
+                        <h2 style="color: black;font-weight:bold">Leave a review</h2>
+                        <form action="/car/<%=car._id%>/reviews"  method="post">
+                          <fieldset class="starability-basic">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked
+                                aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="rating" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="rating" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="rating" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="rating" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="rating" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                          <div class="mb-3">
+                            <label class="form-label" for="body">Reviews</label>
+                            <textarea class="form-control" name="body" id="body" cols="30" rows="3" required></textarea>
+                            <div class="valid-feedback">
+                              Looks good!
+                             </div>
+                            </div>
+                      
+                            <button class="btn btn-theme px-5" style="height: auto;background-color: rgb(0, 139, 0);border-color:rgb(0, 139, 0);">Submit</button>
+                        </form>
+                    </div>
+                    <% } %> 
+                    <% if(currentUser){ %> 
+                    <div class="col-6">
+                        <% for(let review of car.reviews){ %>  
+                            <div class="card mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title" style="color: black;font-weight:bold" >
+                                  Rating :  Vishwas Hibare
+                               </h5>
+                               <p class="starability-result" data-rating="<%=review.rating%>">
+                                Rated: <%= review.rating %> stars
+                               </p>
+                               <p class="card-text">
+                                   Review : <%=review.body%> 
+                               </p>
+                              </div>
+                              <% if(currentUser){ %> 
+                              <form action="/car/<%= car._id%>/reviews/<%= review._id%>?_method=DELETE" method="post" >
+                                <div class="d-flex flex-row-reverse mb-3 me-3">
+                                  <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                              </form>
+                              <% } %> 
+                              
+                            </div>
+                             <% } %> 
+                    </div>
+                    <% }else{ %> 
+                      <div class="col-12 pe-5">
+                        <% for(let review of car.reviews){ %>  
+                            <div class="card mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title" style="color: black;font-weight:bold" >
+                                  Rating :  Vishwas Hibare
+                               </h5>
+                               <p class="starability-result" data-rating="<%=review.rating%>">
+                                Rated: <%= review.rating %> stars
+                               </p>
+                               <p class="card-text">
+                                   Review : <%=review.body%> 
+                               </p>
+                              </div>
+                              <% if(currentUser){ %> 
+                              <form action="/car/<%= car._id%>/reviews/<%= review._id%>?_method=DELETE" method="post" >
+                                <div class="d-flex flex-row-reverse mb-3 me-3">
+                                  <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                              </form>
+                              <% } %> 
+                              
+                            </div>
+                             <% } %> 
+                    </div>
+                      <% } %> 
+                     
+                  </div>
+            </div>
+</div> -->

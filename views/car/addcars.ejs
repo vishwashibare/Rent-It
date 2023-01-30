@@ -1,0 +1,81 @@
+<% layout('views/layouts/boilerplate') %>
+    <div class="form-search light col-4 container mt-5" style="width:auto;">
+        <form action="/car/addcars" method="post" enctype="multipart/form-data">
+            <div class="form-title">
+                <i class="fa fa-globe"></i>
+                <h2>Add a car...</h2>
+            </div>
+
+            <div class="row row-inputs">
+                <div class="container-fluid">
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="formSearchUpLocation2">Car name</label>
+                            <input type="text" class="form-control" placeholder="car name with brand" name="carname">
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="formSearchUpLocation2">Rent per day</label>
+                            <input type="number" class="form-control" placeholder="rent in dollers" name="rent">
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="formSearchUpLocation2">Write brief Description</label>
+                            <textarea type="text" class="form-control" placeholder="car desc" name="cardesc" style="padding-bottom: 100px;"></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-file custom-file form-group has-icon has-label">
+                            <label class="form-file-label" for="image">
+                                <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                                <span class="form-file-button">Browse</span>
+                            </label>
+                            <input type="file" class="form-file-input form-control" id="image" name="image" multiple>
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                    <!-- <input type="file" name="image" id=""> -->
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="formSearchOffLocation2">buying year</label>
+                            <input type="number" class="form-control" placeholder="year" name="year">
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="cars">Works on</label>
+                            <select id="cars" class="form-control" name="workon">
+                                <option value="petrol" selected>Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electricity">Electricity</option>
+                            </select>
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group has-icon has-label">
+                            <label for="formSearchOffLocation2">Distance travlled</label>
+                            <input type="number" class="form-control" placeholder="distance in KM" name="distance">
+                            <span class="form-control-icon"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-submit">
+                <div class="container-fluid">
+                    <div class="inner">
+                        <button type="submit" id="formSearchSubmit2"
+                            class="btn btn-submit btn-theme pull-left btn-primary">Add a Car</button>
+                        <i class="fa"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
