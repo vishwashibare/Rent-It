@@ -116,9 +116,8 @@
                         <% for(let review of car.reviews){ %>  
                             <div class="card mb-3">
                               <div class="card-body">
-                                <h5 class="card-title" style="color: black;font-weight:bold" >
-                                  Rating :  Vishwas Hibare
-                               </h5>
+                                <span style="color: black;font-weight:bold;font-size:large" ><%=review.author.username%>  </span>  <span><%=dateString%></span>
+
                                <p class="starability-result" data-rating="<%=review.rating%>">
                                 Rated: <%= review.rating %> stars
                                </p>
@@ -142,9 +141,7 @@
                         <% for(let review of car.reviews){ %>  
                             <div class="card mb-3">
                               <div class="card-body">
-                                <h5 class="card-title" style="color: black;font-weight:bold" >
-                                  Rating :  Vishwas Hibare
-                               </h5>
+                                <span style="color: black;font-weight:bold;font-size:large" ><%=review.author.username%>  </span>  <span><%=dateString%></span>
                                <p class="starability-result" data-rating="<%=review.rating%>">
                                 Rated: <%= review.rating %> stars
                                </p>
