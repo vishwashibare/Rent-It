@@ -45,15 +45,34 @@ module.exports.Logout = (req, res) => {
       });
 }
 
+// when you press on Rent car button
 module.exports.mycars = async(req,res)=>{
-    // id is of car
-    // res.send(req.params.id);
-    const car = await carschema.findById(req.params.id);
+
+    // this is for adding data in reqFrom
+    const car = await carschema.findById(req.params.id).populate({path : "author",populate : {path:"reqFrom"}});
+    const carOwner = await User.findById(car.author._id).populate('reqFrom');
+    const currentUserId = req.user._id;
+    const carID = req.params.id // person who owns the car
+
+
+
+    carOwner.reqFrom.push({userId : currentUserId,carId : carID});
+    await carOwner.save();
+    let isrequestAccepted = false;
+    carOwner.reqFrom.map((requests)=>{
+      if(requests.userId==currentUserId && requests.carId==carID){
+        isrequestAccepted = requests.isRequesteAccepted;
+      }
+    })
+    // res.send(carOwner);
+
+    // adding data in rented car
     const currentuser = await User.findById(req.user);
     currentuser.rentedcar.push(car);
     await currentuser.save();
     const current = await User.findById(req.user).populate('rentedcar')
-    res.render('./views/car/rentedCar',{current})
+   // res.send(carOwner);
+    res.redirect('/car/allcars');
 }
 
 

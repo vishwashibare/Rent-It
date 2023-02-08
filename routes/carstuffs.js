@@ -16,6 +16,9 @@ router.get("/allcars",car.allcars);
 router.get("/addcars",isLoggedIn, car.addcarsform);
 router.post("/addcars",isLoggedIn,upload.array('image'),car.carformsubmitted );
 router.get('/allcars/rentedcars',isLoggedIn,car.myrentedcars)
+router.get('/allcars/request',isLoggedIn,car.requestedCars)
+//this is for updating in the database for isrequestaccepted
+router.put('/allcars/:Req_id/request',isLoggedIn,car.acceptRequest);
 router.get("/allcars/:id",car.perticularCar)
 router.delete("/allcars/:id",isLoggedIn,car.deleteCar);
 // ladning on your car page after clicikng on navbar

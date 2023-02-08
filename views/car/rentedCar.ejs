@@ -6,7 +6,7 @@
     <section class="page-section breadcrumbs text-right mb-5">
         <div class="container">
             <div class="page-header" style="text-align: center;" >
-                <h1>Car History</h1>
+                <h1>Rented Car History</h1>
             </div>
             <ul class="breadcrumb ">
                 <li><a href="/">Home</a></li>
@@ -19,7 +19,7 @@
     <div class="container text-center mt-5">
         
         <div class="row">
-            <% current.rentedcar.map((car)=>{ %>
+            <% arryRequestAccepted.map((car)=>{ %>
             <div class="container col mb-4">
                 <div class="card" style="width: 30rem;padding-bottom:10px">
                     <%if(car.image.length) {%>
@@ -38,8 +38,14 @@
                       <li class="list-group-item">Fuel : <i class="fa fa-dashboard"></i> <span style="font-weight: bold;"><%=car.workon%></span></li>
                       <li class="list-group-item">Distance travelled : <i class="fa fa-road"></i> <span style="font-weight: bold;"><%=car.distance%> KMS</span></li>
                       <li class="list-group-item">Price : <span style="font-weight: bold;"><%=car.rent%> $</span> per day</li>
-                    </ul>
+                    </ul>    
+                    <% if(car.isRequesteAccepted){ %>
+                        <h2>Request accepted</h2> 
+                        <% }else{ %> 
+                            <h2>Request not accepted</h2> 
+                        <% } %>  
                   </div>
+    
             </div>
             <%  }) %>
         </div>

@@ -1,70 +1,223 @@
-<% layout('views/layouts/boilerplate') %> 
+<% layout('views/layouts/boilerplate') %>
 
-<div class="row justify-content-evenly mt-3" >
-    <div class="col-6 me-5">
-        <h2 class="caption-subtitle" style="font-family: 'Raleway', sans-serif;font-size:72px;font-weight:900;line-height:1;color: black;margin:0 0 40px 0;">Find Your Car!<br/> Rent A Car Theme</h2>
-        <p class="caption-text " style="color: #9ea6b1">
-            Vivamus in est sit amet risus rutrum facilisis sed ut mauris. Aenean aliquam ex ut sem aliquet, eget vestibulum erat pharetra. Maecenas vel urna nulla. Mauris non risus pulvinar.
+    <!-- start page -->
+    <div class="d-flex justify-content-between mb-5 pb-5"  style="background-color: #3b3245">
+    <div class="row mt-3">
+        <div class="col-sm-7" style="margin-left: 50px;">
+            <h2 
+            style="font-family: 'Raleway', sans-serif;font-size:5vw;font-weight:900;line-height:1;color: white;margin:0 0 40px 0;">
+            Find Your Car!<br /> Rent A Car Theme</h2>
+        <p  style="color: #9ea6b1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsa hic est, modi nisi porro, ex, non quasi officiis earum dignissimos commodi minima doloribus quos omnis sint nobis quas quae.
         </p>
-        <p class="caption-text">
-            <a class="btn btn-theme btn-theme-md" href="/car/allcars">See All Vehicles</a>
+        <p>
+            <a class="btn btn-theme ripple-effect btn-theme-md" href="/car/allcars" style="border-radius: 50px;">See All
+                Vehicles</a>
         </p>
+        </div>
+        <div class="form-search light mb-2 col-sm-4" style="left:2%">
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                <div class="form-title" style="margin-left: -16px;margin-right:-16px">
+                    <i class="fa fa-globe"></i>
+                    <h2>Login...</h2>
+                </div>
 
-    </div>
-    <div class="form-search light col-4 ms-5" style="width:auto;">
-        <form action="/login" method="POST" class="needs-validation" novalidate>
-            <div class="form-title">
-                <i class="fa fa-globe"></i>
-                <h2>Login...</h2>
-            </div>
-    
-            <div class="row row-inputs">
-                <div class="container-fluid">
-                    <div class="col-sm-12">
-                        <div class="form-group has-icon has-label">
-                            <label for="validationCustomUsername" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="your username" name="username" required> 
-                            <div class="invalid-feedback">
-                                Enter valid username.
-                              </div>
+                <div class="row row-inputs">
+                    <div class="container-fluid">
+                        <div class="col-sm-12">
+                            <div class="form-group has-icon has-label">
+                                <label for="validationCustomUsername" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="validationCustomUsername"
+                                    placeholder="your username" name="username" required>
+                                <div class="invalid-feedback">
+                                    Enter valid username.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group has-icon has-label">
-                            <label for="validationCustom01" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="myInput" placeholder="your password" name="password" required>
-                            <input type="checkbox" class="mt-3" onclick="myFunction()"><span class="mt-3" style="margin-bottom: 50px;">Show Password</span>
-                            <div class="invalid-feedback">
-                                Enter valid password.
+                        <div class="col-sm-12">
+                            <div class="form-group has-icon has-label">
+                                <label for="validationCustom01" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="myInput" placeholder="your password"
+                                    name="password" required>
+                                <input type="checkbox" class="mt-3" onclick="myFunction()"><span class="mt-3"
+                                    style="margin-bottom: 50px;">Show Password</span>
+                                <div class="invalid-feedback">
+                                    Enter valid password.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    
-            <div class="row row-submit" >
-                <div class="container-fluid" >
-                    <div class="inner" >
-                        <button type="submit" id="formSearchSubmit2" class="btn btn-submit btn-theme pull-left btn-primary" type="submit">Login</button>
-                        <i class="fa"></i>
-                        <div class="pull-right"><span>Don't have account </span><span><a href="/register" style="font-weight: bold;">Create account</a></span></div>
-                        
+
+                <div class="row row-submit">
+                    <div class="container-fluid">
+                        <div class="inner" style="margin-left: -15px;margin-right:-15px">
+                            <button type="submit" id="formSearchSubmit2"
+                                class="btn btn-submit btn-theme pull-left btn-primary" type="submit"
+                                style="border-radius: 50px;">Login</button>
+                            <i class="fa"></i>
+                            <div class="pull-right"><span>Don't have account </span><span><a href="/register"
+                                        style="font-weight: bold;border-radius: 50px;">Create account</a></span></div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
     </div>
-</div>
+    </div>
 
-<script>
-    function myFunction() {
-        var x = document.getElementById("myInput");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
+
+
+
+
+    <!--  Top brands section -->
+    <section class="page-section">
+        <div class="container">
+
+            <h2 class="section-title wow fadeInUp" data-wow-offset="70" data-wow-delay="100ms">
+                <small>What a Kind of Car You Want</small>
+                <span>Great Rental Offers for You</span>
+            </h2>
+
+
+            <div class="tab-content wow fadeInUp" data-wow-offset="70" data-wow-delay="500ms">
+
+
+                <!-- tab 2 -->
+                <div class="tab-pane fade active in" id="tab-2">
+
+                    <div class="swiper swiper--offers-popular">
+                        <div class="swiper-container">
+
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                                        <div class="media">
+                                            
+                                                <img src="/img/car1.png" style="width: 385.4px;height:198.28px;" alt=""/>
+                                        </div>
+                                        <div class="caption text-center">
+                                            <h4 class="caption-title"><a href="#">VW POLO TRENDLINE 2.0 TDI</a></h4>
+                                            <div class="caption-text">Start from 39$/per a day</div>
+                                            
+                                            <table class="table">
+                                                <tr>
+                                                    <td><i class="fa fa-car"></i> 2013</td>
+                                                    <td><i class="fa fa-dashboard"></i> Diesel</td>
+                                                    <td><i class="fa fa-cog"></i> Auto</td>
+                                                    <td><i class="fa fa-road"></i> 25000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                                        <div class="media">
+                
+                                                <img src="/img/car3.jpeg" style="width: 385.4px;height:198.28px;" alt=""/>
+         
+                                           
+                                        </div>
+                                        <div class="caption text-center">
+                                            <h4 class="caption-title"><a href="#">VW POLO TRENDLINE 2.0 TDI</a></h4>
+                                            <div class="caption-text">Start from 39$/per a day</div>
+                                            
+                                            <table class="table">
+                                                <tr>
+                                                    <td><i class="fa fa-car"></i> 2013</td>
+                                                    <td><i class="fa fa-dashboard"></i> Diesel</td>
+                                                    <td><i class="fa fa-cog"></i> Auto</td>
+                                                    <td><i class="fa fa-road"></i> 25000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                                        <div class="media">
+                                            
+                                                <img src="/img/car2.png" style="width: 385.4px;height:198.28px;" alt=""/>
+                                              
+                                           
+                                        </div>
+                                        <div class="caption text-center">
+                                            <h4 class="caption-title"><a href="#">VW POLO TRENDLINE 2.0 TDI</a></h4>
+                                            <div class="caption-text">Start from 39$/per a day</div>
+                                           
+                                            <table class="table">
+                                                <tr>
+                                                    <td><i class="fa fa-car"></i> 2013</td>
+                                                    <td><i class="fa fa-dashboard"></i> Diesel</td>
+                                                    <td><i class="fa fa-cog"></i> Auto</td>
+                                                    <td><i class="fa fa-road"></i> 25000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card">
+                                        <div class="media">
+                                                <img src="/img/car.png" style="width: 385.4px;height:198.28px;" alt=""/>
+                                            
+                                        </div>
+                                        <div class="caption text-center">
+                                            <h4 class="caption-title"><a href="#">VW POLO TRENDLINE 2.0 TDI</a></h4>
+                                            <div class="caption-text">Start from 39$/per a day</div>
+                                           
+                                            <table class="table">
+                                                <tr>
+                                                    <td><i class="fa fa-car"></i> 2013</td>
+                                                    <td><i class="fa fa-dashboard"></i> Diesel</td>
+                                                    <td><i class="fa fa-cog"></i> Auto</td>
+                                                    <td><i class="fa fa-road"></i> 25000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                        <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
         }
-      }
-</script>
+    </script>
 
+    <!-- <script>
+        function scrolll() {
+            var left = document.querySelector(".scroll-images");
+            left.scrollBy(350, 0)
+        }
 
+        function scrollr() {
+            var right = document.querySelector(".scroll-images");
+            right.scrollBy(-350, 0)
+        }
+    </script> -->

@@ -59,9 +59,7 @@
                                               <% } %> 
                                               <% if(currentUser && car.author.equals(currentUser._id)){ %> 
                                             <div class="card-body buttons text-start ms-3 mt-5">
-                                                <form action="/car/allcars/<%=car._id%>?_method=DELETE" method="post">
-                                                  <button class="btn btn-theme card-link pull-right me-3" style="height: auto;background-color: red;border-color:red">Delete</button>
-                                                </form>
+                                                <span style="color: green;font-weight:bold;font-size:large" >Car posted at </span>  <span><%=dateString%></span>
                                               </div>
                                               <% } %> 
                                         </div>
@@ -105,7 +103,7 @@
                             <div class="valid-feedback">
                               Looks good!
                              </div>
-                            </div>
+                           </div>
                       
                             <button class="btn btn-theme px-5" style="height: auto;background-color: rgb(0, 139, 0);border-color:rgb(0, 139, 0);">Submit</button>
                         </form>
